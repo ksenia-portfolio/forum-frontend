@@ -1,0 +1,50 @@
+<div class="container-fluid bg-info">
+
+<form class="forum-contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <h3 class="text-center forum-title">Contact Us</h3>
+
+  <div class="row mb-3">
+    <label for="email" class="col-sm-3 col-form-label">Email*</label>
+    <div class="col-sm-8">
+      <input type="email" class="form-control forum-contact-field" id="email" formControlName="emailControl" [(ngModel)]="contactMessage.email">
+      <div *ngIf="formControls.emailControl.touched && formControls.emailControl.invalid" class="forum-text-alert">
+        <div *ngIf="formControls.emailControl.errors.pattern">Invalid email</div>
+        <div *ngIf="formControls.emailControl.errors.required">Email is required.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="topic" class="col-sm-3 col-form-label">How can we help?</label>
+    <div class="col-sm-8">
+     <select id="topic" name="topic" formControlName="topicControl" [(ngModel)]="contactMessage.topic" class="custom-select">
+       <option *ngFor="let t of topics" [value]="t.name" [selected]="t.name == 'I forgot my password'">{{t.name}}</option>
+     </select>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="message" class="col-sm-3 col-form-label">Describe your problem*</label>
+    <div class="col-sm-8">
+      <textarea  rows="6" class="form-control" id="message" formControlName="messageControl" [(ngModel)]="contactMessage.message"></textarea>
+      <div *ngIf="formControls.messageControl.touched && formControls.messageControl.invalid" class="forum-text-alert">
+        <div *ngIf="formControls.messageControl.errors.required">Description is required.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3" *ngIf="messageSent == true && !(formControls.emailControl.dirty || formControls.topicControl.dirty || formControls.messageControl.dirty)">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-8 forum-text-alert">Your message was sent successfully!</div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-8">
+      <p>Don't have account? <a (click)="register()" class="forum-link">Register</a> or <a (click)="signIn()" class="forum-link">Sign In to your account</a></p>
+      <button style="float: right" type="submit" class="btn btn-dark" [disabled]="contactForm.invalid">Submit</button>
+    </div>
+  </div>
+</form>
+</div>
+

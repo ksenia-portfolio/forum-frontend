@@ -1,0 +1,22 @@
+<div class="nav">
+
+<!-- ACCOUNT DROPDOWN -->
+<li class="nav-item dropdown">
+  <a class="forum-nav-item dropdown-toggle" data-toggle="dropdown" role="button" (click)="reloadComponent()">Account</a>
+    <ul class="dropdown-menu bg-dark">
+      <li class="forum-dropdown-item" *ngFor="let dropItem of accountDropdown">
+        <a class="text-decoration-none text-white p-1" (click)="navigateTo(dropItem[1])">{{dropItem[0].toUpperCase()}}</a></li>
+
+    </ul>
+</li>
+
+<!-- DISCUSSIONS -->
+<li class="nav-item dropdown">
+  <a class="forum-nav-item dropdown-toggle" data-toggle="dropdown" role="button" (click)="reloadComponent()">Discussions</a>
+  <ul class="dropdown-menu bg-dark">
+    <li class="forum-dropdown-item" *ngFor="let discussion of discussions">
+      <a class="text-decoration-none text-white p-1 forum" (click)="navigateTo(discussion[1])">{{discussion[0].toUpperCase()}}</a>
+    </li>
+  </ul>
+</li>
+</div>

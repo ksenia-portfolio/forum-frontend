@@ -1,1 +1,102 @@
-/* You can add global styles to this file, and also import other style files */
+.forum-link{
+  color: white;
+  text-decoration: underline;
+}
+.forum-link:hover{
+  cursor: pointer;
+  color: darkblue;
+}
+.forum-link-blue{
+  color: blue;
+  text-decoration: underline;
+}
+.forum-link-blue:hover{
+  cursor: pointer;
+}
+
+.forum-text-alert{
+  color: yellow;
+  font-style: italic;
+}
+.forum-contact-form{
+  padding: 3% 25% 3% 15%;
+}
+.forum-title{
+  margin-left: 150px;
+  padding-bottom: 60px;
+}
+.forum-bad-request{
+  margin-top: 25%;
+  margin-left: 25%;
+  border: black 2px solid;
+  background-color: white;
+  height: 500px;
+  width: 500px;
+}
+.forum-underline-blue{
+  border-bottom: #18A2B8 1px solid;
+}
+.forum-underline-dark{
+  border-bottom: #544f4f 1px solid;
+}
+
+.forum-navbar-dark{
+  background-color: rgba(52, 58, 64, 0.8);
+}
+.forum-background{
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjNDAzYzNmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9IiMxZTI5MmQiPjwvcGF0aD4KPC9zdmc+");
+}
+.forum-navbar-blue-title{
+  background-color: #18A2B8;
+  color: white;
+  padding: 0 10px;
+}
+.forum-navbar-link:hover{
+  background-color: #6ecfde;
+  cursor: pointer;
+}
+.forum-navbar-link:active{
+  background-color: #093b43;
+}
+
+.forum-dropdown-item:hover{
+  background-color: #18A2B8;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.forum-dropdown-item:active{
+  background-color: #093b43;
+  cursor: grab;
+}
+.forum-nav-item{
+  padding: 10px;
+  color: white;
+  font-size: 25px;
+
+}
+.forum-nav-brand{
+  padding: 10px;
+  color: #6ecfde;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.forum-nav-item:hover{
+  text-decoration: none;
+  color: paleturquoise;
+  transition: all 0.3s ease;
+}
+.forum-nav-brand:hover{
+  text-decoration: none;
+  color: paleturquoise;
+  transition: all 0.3s ease;
+}
+.forum-nav-brand:active{
+  color: #18A2B8;
+  cursor: grab;
+}
+.forum-nav-item:active{
+  color: #18A2B8;
+  cursor: grab;
+}

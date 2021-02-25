@@ -1,0 +1,17 @@
+
+  <div class="container bg-white p-3 text-center" *ngIf="requestFail === true || discussions.length == 0">
+    <p>
+      No discussions found to match your search criteria
+    </p>
+  </div>
+
+  <div class="container bg-white mb-2" *ngFor="let d of discussions">
+    <div class="forum-navbar-blue-title row"><p class="p-sm-2 font-weight-bold">{{d.topic.toUpperCase()}}</p></div>
+    <div class="container p-sm-2">
+      <p>Author: {{d.name}}</p>
+      <p>Created on: {{d.dateCreatedToString}}</p>
+      <hr>
+      <p>{{d.text}}</p>
+    </div>
+  </div>
+

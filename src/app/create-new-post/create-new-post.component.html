@@ -1,0 +1,48 @@
+<div *ngIf="!closeWind && signedIn" class="container-fluid bg-white">
+
+  <form class="forum-contact-form" [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <h3 class="text-center forum-title">Create New Post</h3>
+
+    <div class="row mb-3">
+
+      <div class="col-sm-3">Name:</div>
+      <div class="col-sm-8"> {{account.name}}</div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="topic" class="col-sm-3 col-form-label">Choose topic*</label>
+      <div class="col-sm-8">
+        <select id="topic" name="topic" formControlName="topicControl" [(ngModel)]="postBody.topic" class="custom-select">
+          <option *ngFor="let t of topics" [value]="t.name">{{t.name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="message" class="col-sm-3 col-form-label">Write your post*</label>
+      <div class="col-sm-8">
+        <textarea  rows="6" class="form-control" id="message" formControlName="messageControl" [(ngModel)]="postBody.text"></textarea>
+        <div *ngIf="formControls.messageControl.touched && formControls.messageControl.invalid" class="forum-text-alert">
+          <div *ngIf="formControls.messageControl.errors.required">This field can't be blank.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-8">
+
+        <button type="submit" class="btn btn-info ml-sm-2" style="float: right" [disabled]="postForm.invalid">
+          Submit
+        </button>
+
+        <button type="button" class="btn btn-dark" style="float: right" (click)="dismiss()">
+          Dismiss
+        </button>
+
+
+      </div>
+    </div>
+  </form>
+</div>
+

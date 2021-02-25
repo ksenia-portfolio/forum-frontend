@@ -1,0 +1,72 @@
+<form style="padding: 3% 20%" [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="bg-info">
+  <h3 class="text-center pb-5">Create Forum Account</h3>
+
+
+  <div class="row mb-3">
+    <label for="name" class="col-sm-2 col-form-label">Name*</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="name" formControlName="nameControl" [(ngModel)]="tempAccount.name">
+      <div *ngIf="formControls.nameControl.touched && formControls.nameControl.invalid" class="forum-text-alert">
+        <div *ngIf="formControls.nameControl.errors?.minlength">Must have at list 2 characters.</div>
+        <div *ngIf="formControls.nameControl.errors.required">Name is required.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="email" class="col-sm-2 col-form-label">Email*</label>
+    <div class="col-sm-8">
+      <input type="email" class="form-control" id="email" formControlName="emailControl"
+             [(ngModel)]="tempAccount.email">
+      <div *ngIf="formControls.emailControl.touched && formControls.emailControl.invalid" class="forum-text-alert">
+        <div *ngIf="formControls.emailControl.errors.pattern">Invalid email</div>
+        <div *ngIf="formControls.emailControl.errors.required">Email is required.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="password" class="col-sm-2 col-form-label">Password*</label>
+    <div class="col-sm-8">
+      <input type="password" class="form-control" id="password" formControlName="passwordControl"
+             [(ngModel)]="tempAccount.password">
+      <div *ngIf="formControls.passwordControl.touched && formControls.passwordControl.invalid"
+           class="forum-text-alert">
+        <div *ngIf="formControls.passwordControl.errors?.minlength">Must have at list 8 characters.</div>
+        <div *ngIf="formControls.passwordControl.errors.required">Password is required.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="confirmPassword" class="col-sm-2 col-form-label">Confirm Password*</label>
+    <div class="col-sm-8">
+      <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPasswordControl"
+             [(ngModel)]="confirmPassword">
+      <div *ngIf="formControls.confirmPasswordControl.touched && formControls.confirmPasswordControl.invalid"
+           class="forum-text-alert">
+        <div *ngIf="formControls.confirmPasswordControl.errors.required">Password is required.</div>
+        <div *ngIf="formControls.confirmPasswordControl.errors.confirmedValidator">Passwords do not match.</div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="registrationFailed == true">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 forum-text-alert">Account with email {{tempAccount.email}} already exists.</div>
+  </div>
+  <div class="row" *ngIf="registrationFailed == false">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 forum-text-alert">Account was created successfully! Click Sign In link below.</div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <p>Have account? <a (click)="signIn()" class="forum-link">Sign In</a></p>
+      <button style="float: right" type="submit" class="btn btn-dark" [disabled]="registrationForm.invalid">
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+
